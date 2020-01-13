@@ -1,0 +1,31 @@
+GDAT515 - Assigment One
+-----------------------
+
+#### Due Date: 2019/01/20 - Before Class
+
+#### Be preprared to discuss in class
+
+The application of data visualization is pervasive. Media of all types
+use said visualization
+
+The use of visualization is pervasive in the media: explanatory diagrams
+in magazines, graphs describing the projected impact of a new state
+budget, new experimental data plotted against theoretical expectations,
+etc. In each case, the author of the visualization tries to convey a
+point of view by emphasizing some aspects of the data while toning down
+other aspects. The result can vary widely, from informative to
+misleading.
+
+For this assignment, find an example of a **good** and **bad** data
+visualization. The source and domain can be anything other than
+information visualization text, papers, or atricles. The visualization
+can be sourced from your employer if they permit.
+
+Once you have identifted the good and bad examples, make a markdown that
+includes both pictures as well as detailed explaination. The first
+paragraph should tell the story behind the pciture. The second paragraph
+should critique the visualization.
+
+The document should be pushed to your assigment one repostory and saved
+in the convenion discussed in the syllabus. Be prepared to show your web
+page and discuss your findings in class.
