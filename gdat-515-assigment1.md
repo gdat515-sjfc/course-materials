@@ -20,13 +20,15 @@ Once you have identified the good and bad examples, make a markdown that
 includes both pictures as well as a detailed explanation of each
 picture. The first paragraph should tell the story behind the picture:  
 \* a brief description of the article  
-\* the context of the visualization as it relates to the story \* …  
+\* the context of the visualization as it relates to the story  
+\* … .  
 The second paragraph should critique the visualization:  
 \* did the visualization help to illustrate the point the author was
-attempting to make or emphasize or was the message obscured \* any
-gratuitous frills or style issue \* If comparisons were made, did they
-make sense. \* …
+attempting to make or emphasize or was the message obscured  
+\* any gratuitous frills or style issue  
+\* If comparisons were made, did they make sense  
+\* … .
 
 The document should be pushed to your assignment one repository and
-saved in the convention discussed in the syllabus. Be prepared to show
-your web page and discuss your findings in class.
+saved in the convention discussed in the syllabus. Be prepared to
+present the document and discuss your findings in class.
