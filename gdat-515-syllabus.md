@@ -1,17 +1,15 @@
-GDAT 515: Data Visualization and Presentation
----------------------------------------------
+## GDAT 515: Data Visualization and Presentation
 
 ### Course Syllabus
 
 *Instructor: Chip Galusha*  
-*E-Mail:
-<a href="mailto:frankgalushajr@gmail.com" class="email">frankgalushajr@gmail.com</a>*  
+*E-Mail: <frankgalushajr@gmail.com>*  
 *Cell: 585-615-0733*
 
 “The simple graph has brought more information to the data analyst’s
 mind than any other device.” — John Tukey
 
-Welcome to GDAT 515: Data Visualization and Presentation! As the title
+Welcome to GDAT 515: Data Visualization and Presentation\! As the title
 would imply, this courses develops the technical and strategic skills
 necessary to convey quantitative information with visualization in a
 meaningful and convincing manner.
@@ -20,15 +18,14 @@ Tactical - proficiency with the tools for developing awesome data viz:
 \* ggplot2 \* plotly \* leaflet (for maps)
 
 Strategic - the successful utilization of data visualization to: -
-“improve understanding of data” (Naomi Robbins) - communicate results -
-explore data
+“improve understanding of data” (Naomi Robbins) - communicate results
+- explore data
 
 #### Course Management
 
 Course materials and discussion will take place at
-<a href="https://github.com/gdat515-sjfc" class="uri">https://github.com/gdat515-sjfc</a>.
-Once everyone has their own github account, they will be added as team
-members.
+<https://github.com/gdat515-sjfc>. Once everyone has their own github
+account, they will be added as team members.
 
 #### Grading
 
@@ -40,7 +37,7 @@ Final Assignment: 30%
 
 In most classes, we’ll do a live coding exercise as a group. This is an
 opportunity for you to start coding solutions with the aid of the group
-and the instructor. Should you an encounter an error (we all will!),
+and the instructor. Should you an encounter an error (we all will\!),
 this will be the time to discuss it.
 
 Your code and commentary should be in an r-markdown script that will be
@@ -67,7 +64,7 @@ will be a R markdown file (.rmd).
 
 ### Final Assignment
 
-Comming Soon!
+Comming Soon\!
 
 #### Communication
 
@@ -90,22 +87,22 @@ this is an acceptable practice.
 
 #### Useful Resources
 
--   *Github*  
-    <a href="https://happygitwithr.com/rmd-test-drive.html" class="uri">https://happygitwithr.com/rmd-test-drive.html</a>  
--   *Style Guides*  
-    <a href="https://google.github.io/styleguide/Rguide.xml" class="uri">https://google.github.io/styleguide/Rguide.xml</a>  
-    <a href="https://style.tidyverse.org" class="uri">https://style.tidyverse.org</a>
+  - *Github*  
+    <https://happygitwithr.com/rmd-test-drive.html>  
+  - *Style Guides*  
+    <https://google.github.io/styleguide/Rguide.xml>  
+    <https://style.tidyverse.org>
 
 *Publically Available Data*  
-- *US Government*  
-<a href="https://www.data.gov" class="uri">https://www.data.gov</a>  
-- *St. Louis Federal Reserve*  
-<a href="https://fred.stlouisfed.org" class="uri">https://fred.stlouisfed.org</a>
+\- *US Government*  
+<https://www.data.gov>  
+\- *St. Louis Federal Reserve*  
+<https://fred.stlouisfed.org>
 
--   *All things viz*  
-    <a href="https://stat545.com/effective-graphs.html" class="uri">https://stat545.com/effective-graphs.html</a>  
-    <a href="https://github.com/jennybc/ggplot2-tutorial" class="uri">https://github.com/jennybc/ggplot2-tutorial</a>
+  - *All things viz*  
+    <https://stat545.com/effective-graphs.html>  
+    <https://github.com/jennybc/ggplot2-tutorial>
 
 Attribution: The github design and participation requirements for this
 course was inspired by STAT 545 @ UBC created by Jenny Bryan.
-<a href="http://stat545.com" class="uri">http://stat545.com</a>
+<http://stat545.com>
