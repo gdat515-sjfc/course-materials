@@ -14,11 +14,13 @@ would imply, this courses develops the technical and strategic skills
 necessary to convey quantitative information with visualization in a
 meaningful and convincing manner.
 
-Tactical - proficiency with the tools for developing awesome data viz:
-\* ggplot2 \* plotly \* leaflet (for maps)
+Tactical - proficiency with the tools for developing awesome data viz:  
+\* ggplot2  
+\* plotly  
+\* leaflet (for maps)
 
-Strategic - the successful utilization of data visualization to: -
-“improve understanding of data” (Naomi Robbins) - communicate results
+Strategic - the successful utilization of data visualization to:  
+\- “improve understanding of data” (Naomi Robbins) - communicate results
 - explore data
 
 #### Course Management
@@ -46,7 +48,9 @@ class. We will set these repositories up on the first day of class.
 
 Participation will never be evaluated by **correctness.**
 
-Should you miss a class,
+Should you miss a class, there will be an opportunity to still earn
+participation credit. The assignment will be situational. See Chip for
+details.
 
 ### Assignments
 
@@ -64,7 +68,7 @@ will be a R markdown file (.rmd).
 
 ### Final Assignment
 
-Comming Soon\!
+Coming Soon\!
 
 #### Communication
 
@@ -88,7 +92,8 @@ this is an acceptable practice.
 #### Useful Resources
 
   - *Github*  
-    <https://happygitwithr.com/rmd-test-drive.html>  
+    <https://happygitwithr.com/rmd-test-drive.html>
+
   - *Style Guides*  
     <https://google.github.io/styleguide/Rguide.xml>  
     <https://style.tidyverse.org>
@@ -99,9 +104,22 @@ this is an acceptable practice.
 \- *St. Louis Federal Reserve*  
 <https://fred.stlouisfed.org>
 
-  - *All things viz*  
-    <https://stat545.com/effective-graphs.html>  
-    <https://github.com/jennybc/ggplot2-tutorial>
+  - *Stanford Data Viz*
+    <https://graphics.stanford.edu/courses/cs448b-04-winter/online_databases.html>
+
+*All things viz*  
+<https://stat545.com/effective-graphs.html>  
+<https://github.com/jennybc/ggplot2-tutorial>
+
+*Materials From or Mentioned in Class*  
+[A Layered Grammar of Graphics By Hadley
+Wickham](http://vita.had.co.nz/papers/layered-grammar.pdf)  
+[Creating effective figures and
+tables](https://www.biostat.wisc.edu/~kbroman/presentations/graphs2018.pdf)  
+[Jenny BC ggplot2 tutoial
+slides](https://github.com/jennybc/ggplot2-tutorial/tree/master/ggplot2-tutorial-slides)
+
+Additional links will be added as they are discussed in class.
 
 Attribution: The github design and participation requirements for this
 course was inspired by STAT 545 @ UBC created by Jenny Bryan.
