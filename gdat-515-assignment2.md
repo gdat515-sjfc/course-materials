@@ -7,12 +7,12 @@
 For this assignment, use your newly developed ggplot2 skills to answer a
 specific question using data.
 
-Step 1: Pick a domain of interest. High level examples include
-economics, politics, sports, climate science, etc… . Step 2: Pose a
-question you would like to answer related to the domain. For example,
-how has the US GDP effect poverty  
+*Step 1:* Pick a domain of interest. High level examples include
+economics, politics, sports, climate science, etc… .  
+*Step 2:* Pose a question you would like to answer related to the
+domain. For example, how has the US GDP effect poverty  
 rates in NYS.  
-Step 3: Find the data sources you will need to answer your question.
+*Step 3:* Find the data sources you will need to answer your question.
 
 You may need to iterate through these steps a few times. It may be
 challenging to find both an interesting question and a dataset that has
