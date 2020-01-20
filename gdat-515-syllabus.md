@@ -30,6 +30,14 @@ Course materials and discussion will take place at
 <https://github.com/gdat515-sjfc>. Once everyone has their own github
 account, they will be added as team members.
 
+Participation and assignments should be submitted, or in github parlance
+“pushed”, to the GDAT 515 students page found below.
+
+<https://github.com/gdat515-sjfc-students>
+
+We will discuss the procedure to get the materials pushed to the correct
+repository on the first day of class.
+
 #### Grading
 
 Participation: 30%  
@@ -55,6 +63,10 @@ details.
 
 ### Assignments
 
+There will be four or five homework assignments, each worth 20 points,
+assigned throughout the semester. In the event a deadline extension is
+necessary, contact Chip to make the appropirate arrangements.
+
 Each student will create a new repository for each assignment with the
 following naming convention:
 
@@ -65,7 +77,7 @@ While this might seem excessive, it will help you stay organized and
 facilitates the review of the developmental material necessary for the
 final submission (remember “show your work”" from the paper and pencil
 days?). Unless otherwise noted, the final submission of each assignment
-will be a R markdown file (.rmd).
+will be a github markdown file (.md).
 
 ### Final Assignment
 
