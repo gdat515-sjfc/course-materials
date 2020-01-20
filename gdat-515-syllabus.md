@@ -15,13 +15,14 @@ necessary to convey quantitative information with visualization in a
 meaningful and convincing manner.
 
 Tactical - proficiency with the tools for developing awesome data viz:  
-\* ggplot2  
-\* plotly  
-\* leaflet (for maps)
+\- ggplot2  
+\- plotly  
+\- leaflet (for maps)
 
 Strategic - the successful utilization of data visualization to:  
-\- “improve understanding of data” (Naomi Robbins) - communicate results
-- explore data
+\- “improve understanding of data” (Naomi Robbins)  
+\- communicate results  
+\- explore data
 
 #### Course Management
 
@@ -98,13 +99,16 @@ this is an acceptable practice.
     <https://google.github.io/styleguide/Rguide.xml>  
     <https://style.tidyverse.org>
 
-*Publically Available Data*  
-\- *US Government*  
-<https://www.data.gov>  
-\- *St. Louis Federal Reserve*  
-<https://fred.stlouisfed.org>
+*Publically Available Data*
 
-  - *Stanford Data Viz*
+  - *US Government*  
+    <https://www.data.gov>
+
+  - *St. Louis Federal Reserve*  
+    <https://fred.stlouisfed.org>
+
+  - *Stanford Data
+    Viz*  
     <https://graphics.stanford.edu/courses/cs448b-04-winter/online_databases.html>
 
 *All things viz*  
