@@ -2,7 +2,7 @@
 
 #### Due Date: 2020/02/17 - Before Class
 
-#### This is a repeat of Assigment Two where you will use Plotly instead of ggplot2
+#### This is a repeat of Assigment Two, this time using Plotly instead of ggplot2
 
 For this assignment, use your newly developed plotly skills to answer a
 specific question using data.
