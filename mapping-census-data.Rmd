@@ -1,0 +1,282 @@
+---
+title: "Tidycensus & Leaflet"
+author: "Chip Galusha"
+date: "2/17/2020"
+output: html_document
+---
+
+## Making Beautiful Maps with The tidycensus and leaflet Packages
+#### Chip
+
+Everyone loves a map. What's better than a map? A map that's interactive! The *leaflet* open-source JavaScript libraries
+and R package enable us to develop interactive maps all from the comfort of our own R Studio IDE. The *tidycensus* 
+package "is an R package that allows users to interface with the US Census Bureau’s decennial Census and five-year American 
+Community APIs and return tidyverse-ready data frames, optionally with simple feature geometry included."(https://walkerke.github.io/tidycensus/)
+
+This document covers the basics of each package and how to integrate them with one another. tidycensus is covered first
+followed by leaflet. The US census data form tidycenus will be used to solidify our understanding of leaflet with an 
+applied example.
+
+### Getting Started
+
+If you don't have the packages already, download them from CRAN using the following code. This will check if you have 
+the required packages and install them if you don't. Once installed, all the required packages are "libraried" into 
+you're R environment.
+
+```{r}
+
+`%notin%` <- Negate(`%in%`)
+
+req.packages <- c("leaflet", "tidycensus", "tidyverse", "ggthemes", "ggExtra", "scales")
+
+if(any(installed.packages() %notin% req.packages)){
+  
+  missing.package.inds <- which(req.packages %notin% installed.packages())  
+
+  install.packages(req.packages[missing.package.inds])
+    
+}
+
+eval(
+  parse(
+    text = paste0('library(',req.packages,')')
+    )
+  )
+  
+
+
+```
+
+### tidycensus
+#### Basic Usage 
+
+[Sign Up for a US Census API Key](https://api.census.gov/data/key_signup.html)
+
+Once you've been grated access with an API key, set the key in your working environment. Here I saved my key in
+my .Rprofile file for easy access. 
+
+```{r}
+
+# if(!file.exists("~/.Rprofile")) # only create if not already there
+#   file.create("~/.Rprofile")    # (don't overwrite it)
+# file.edit("~/.Rprofile")
+
+source('~/.Rprofile')
+
+census_api_key(key = census.api.key, install = TRUE, overwrite = TRUE)
+
+
+census_api_key(key = <"put sting here">, install = TRUE)
+```
+
+The two main function are the *get_acs* and *get_decennial* functions.
+
+* *get_acs*: access the 5-year American Community Survey APIs   
+* *get_decennial*: access the 1990, 2000, and 2010 decennial US Census APIs
+
+To access a directory of available survey data, use the *load_variables* function. This function has three arguments:
+(from the documentation)   
+
+**year:** The year for which you are requesting variables. Either the year of the decennial Census, or the endyear for a 5-year ACS sample.   
+**dataset:** One of "sf1", "sf3", "acs1", "acs3", "acs5", "acs1/profile", "acs3/profile, "acs5/profile", "acs1/subject", "acs3/subject", or "acs5/subject".     
+**cache:** Whether you would like to cache the dataset for future access, or load the dataset from an existing cache. Defaults to FALSE.   
+
+First, lets see what's available in the 2000 US census data
+
+```{r}
+
+census.2000 <- load_variables(year = 2000, "sf1", cache = TRUE)
+
+DT::datatable(
+  head(
+    census.2000, n = 20
+    )
+  )
+
+```
+
+With with similar syntx, we can check out the American Community Survey has to offer.
+
+```{r}
+
+acs.2017 <- load_variables(year = 2017, dataset = 'acs1', cache = TRUE)
+
+DT::datatable(
+  head(
+    acs.2017, n = 20
+    )
+  )
+
+```
+
+#### Working with ACS/Census Data
+
+Now we'll utilize the workhorse functions describe above. 
+
+NOTE(from the documentation):
+> American Community Survey data differ from decennial Census data in that ACS data are based on an annual sample of 
+approximately 3 million households, rather than a more complete enumeration of the US population. In turn, ACS data 
+points are estimates characterized by a margin of error. tidycensus will always return the estimate and margin of error 
+together for any requested variables. In turn, when requesting ACS data with tidycensus, it is not necessary to specify 
+the "E" or "M" suffix for a variable name.
+
+The ACS survey has more data so we'll it for this demonstration. The get_acs function has many arguments. 
+
+**geography**	
+The geography of your data.
+
+**variables**	
+Character string or vector of character strings of variable IDs. tidycensus automatically returns the estimate and the margin of error associated with the variable.
+
+**table**	
+The ACS table for which you would like to request all variables. Uses lookup tables to identify the variables; performs faster when variable table already exists through load_variables(cache = TRUE). Only one table may be requested per call.
+
+**cache_table**	
+Whether or not to cache table names for faster future access. Defaults to FALSE; if TRUE, only needs to be called once per dataset. If variables dataset is already cached via the load_variables function, this can be bypassed.
+
+**year**	
+The year, or endyear, of the ACS sample. 2009 through 2018 are available. Defaults to 2018.
+
+**endyear**	
+Deprecated and will be removed in a future release.
+
+**output**	
+One of "tidy" (the default) in which each row represents an enumeration unit-variable combination, or "wide" in which each row represents an enumeration unit and the variables are in the columns.
+
+**state**	
+An optional vector of states for which you are requesting data. State names, postal codes, and FIPS codes are accepted. Defaults to NULL.
+
+**county**	
+The county for which you are requesting data. County names and FIPS codes are accepted. Must be combined with a value supplied to 'state'. Defaults to NULL.
+
+**geometry**	
+if FALSE (the default), return a regular tibble of ACS data. if TRUE, uses the tigris package to return an sf tibble with simple feature geometry in the 'geometry' column. state, county, tract, block group, block, and ZCTA geometry are supported.
+
+**keep_geo_vars**
+if TRUE, keeps all the variables from the Census shapefile obtained by tigris. Defaults to FALSE.
+
+**shift_geo**	
+if TRUE, returns geometry with Alaska and Hawaii shifted for thematic mapping of the entire US. Geometry was originally obtained from the albersusa R package.
+
+**summary_var**	
+Character string of a "summary variable" from the ACS to be included in your output. Usually a variable (e.g. total population) that you'll want to use as a denominator or comparison.
+
+**key**	
+Your Census API key. Obtain one at http://api.census.gov/data/key_signup.html
+
+**moe_level**	
+The confidence level of the returned margin of error. One of 90 (the default), 95, or 99.
+
+**survey**	
+The ACS contains one-year, three-year, and five-year surveys expressed as "acs1", "acs3", and "acs5". The default selection is "acs5."
+
+**show_call**	
+if TRUE, display call made to Census API. This can be very useful in debugging and determining if error messages returned are due to tidycensus or the Census API. Copy to the API call into a browser and see what is returned by the API directly. Defaults to FALSE.
+
+Let's say we were interested in knowing the median income by zip codes in New York State. First we'll need to a aquire 
+a list of [NYS zip codes](https://data.ny.gov/widgets/juva-r6g2). 
+
+
+```{r, }
+
+nys.zip.codes <- data.table::fread("./data/New_York_State_ZIP_Codes-County_FIPS_Cross-Reference.csv")
+
+get_acs(geography = "county",
+        state = "NY", 
+        variables = "B19013_001") %>% View
+
+
+ny.incm.zip <- get_acs(geography = "zcta", 
+                     variables = c(medincome = "B19013_001"),
+                     year = 2018,
+                     keep_geo_vars = TRUE, 
+                     cache_table = TRUE, 
+                     geometry = TRUE, 
+                     ) %>% 
+  dplyr::filter(GEOID %in% nys.zip.codes$`ZIP Code`)
+
+```
+
+What are is the median income disparity between the top five and bottom five zip codes? Visualize!
+
+```{r}
+
+ny.incm.zip %>% 
+  top_n(20, estimate) %>% 
+  rename(Zip = GEOID) %>% 
+  mutate(Zip = as.factor(Zip)) %>% 
+  ggplot(data = ., aes(y = reorder(Zip, estimate), x = estimate)) + 
+  geom_point() +
+  theme_tufte() +
+  theme(axis.title = element_blank()) +
+  scale_x_continuous(labels = scales::dollar) +
+  ggtitle(label = "NYS Median Household Income By Zip")
+  
+
+```
+
+In the api call, we specified two arguments to be TRUE; keep_geo_vars, geometry. These will be used to demonstrate 
+the useage of the leaflet package.
+
+### Leaflet
+#### Basic Usage
+
+No long winded explainations, let's get right into it:
+
+```{r}
+
+sjfc <- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng = -77.509, lat = 43.1157, popup = "SJFC:: GDAT515")
+
+sjfc  # Print the map
+
+
+```
+
+The **leaflet function** create a map widget. 
+
+```{r}
+
+color.pal <- colorNumeric(palette = "viridis", domain = ny.incm.zip$estimate)
+
+```
+
+http://leaflet-extras.github.io/leaflet-providers/preview/
+
+```{r}
+
+income.map <- leaflet(data = ny.incm.zip) %>% 
+  addTiles() %>% 
+  setView(lng = -77.509, lat = 43.1157, zoom = 8) %>% 
+  addPolygons(fillColor = ~color.pal(ny.incm.zip$estimate),
+              fillOpacity = 0.9,
+              #layerId = ~GEOID,
+              fill = TRUE,
+              weight = 0.7, 
+              smoothFactor = 0.3,
+              color = "black",
+              highlight = highlightOptions(weight = 2, # this will control the cover when you hover over each zip
+                                           color = "Black",
+                                           fillOpacity = 0.9,
+                                           bringToFront = FALSE),
+            popup = ~paste("<b>Zip Code: </b>", GEOID, "<br>",
+                           "<b>Median Household Income:</b>", dollar(estimate))
+              ) %>% 
+  addLegend(position = "topleft", 
+            pal = color.pal, 
+            values = ny.incm.zip$estimate,
+            title = "Median Income")
+
+income.map
+
+income.map %>% 
+  #addMarkers(lng = -77.509, lat = 43.1157, popup = "SJFC:: GDAT515")
+  addAwesomeMarkers(lng = -77.509, lat = 43.1157, icon = awesomeIcons("fa-university", library = 'fa', markerColor = "maroon")) #using font awesome 
+
+  
+```
+
+
+
+
